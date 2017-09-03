@@ -1,0 +1,26 @@
+import example.*
+
+describe "Tests de superheroes" {
+
+	test "superman comienza con 30000 celulas solares" {
+		assert.equals(30000, superman.celulasSolares())
+	}
+	
+	test "el zorro no es poderoso" {
+		assert.notThat(elZorro.esPoderoso())
+	}
+	
+	test "batman es poderoso" {
+		assert.that(batman.esPoderoso())
+	}
+	
+	test "la agrupacion superheroica no tiene integrantes al principio" {
+		assert.that(agrupacionSuperheroica.integrantes().isEmpty())
+	}
+	
+	test "la agrupacion superheroica tiene un integrante despues de agregarlo" {
+		agrupacionSuperheroica.agregarSuperheroe(superman)
+		agrupacionSuperheroica.agregarSuperheroe(batman)
+		assert.equals(#{superman, batman}, agrupacionSuperheroica.integrantes())
+	}
+}
